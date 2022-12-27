@@ -103,7 +103,7 @@ $('#saveButton').click(function () {
     var categoryLevel = $("#categoryLevel").val();
     var parentId = $("#parentId").val();
     var categoryRank = $("#categoryRank").val();
-    if (!validCN_ENString2_18(categoryName)) {
+    if (!validCN_ENString2_100(categoryName)) {
         $('#edit-error-msg').css("display", "block");
         $('#edit-error-msg').html("请输入符合规范的分类名称！");
     } else {
