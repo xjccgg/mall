@@ -8,14 +8,17 @@
  */
 package ltd.newbee.mall.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
 import ltd.newbee.mall.controller.vo.NewBeeMallIndexConfigGoodsVO;
 import ltd.newbee.mall.entity.IndexConfig;
+import ltd.newbee.mall.entity.NewBeeMallGoods;
 import ltd.newbee.mall.util.PageQueryUtil;
 import ltd.newbee.mall.util.PageResult;
 
 import java.util.List;
 
-public interface NewBeeMallIndexConfigService {
+public interface NewBeeMallIndexConfigService extends IService<NewBeeMallGoods> {
     /**
      * 后台分页
      *
@@ -37,6 +40,12 @@ public interface NewBeeMallIndexConfigService {
      * @return
      */
     List<NewBeeMallIndexConfigGoodsVO> getConfigGoodsesForIndex(int configType, int number);
+
+    /**
+     * 返回分页的商品对象(产品列表)
+     * @return
+     */
+    List<NewBeeMallGoods> getGoodsForProduct(int configType, int order);
 
     Boolean deleteBatch(Long[] ids);
 }

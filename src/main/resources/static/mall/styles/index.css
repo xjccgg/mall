@@ -50,21 +50,39 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 1226px;
+    width: 1600px;
 }
 
 #product #product-class-list{
     justify-content: center;
     width: 300px;
+    margin-top: 20px;
     float: left;
-    background: #c9dae1;
+    background-color: #f5f5f5;
+}
+
+#product #product-class-list > h3 {
+    text-align: center;
+    height: 58px;
+    line-height: 58px;
+}
+
+#product #product-class-list ul {
+}
+
+#product #product-class-list ul li {
+    width: 300px;
+    background-color: #fafafa;
+    display: block;
+    font-size: 14px;
+    text-align: left;
 }
 
 #product #product-list {
     margin-left: 10px;
-    width: 200px;
+    width: 1000px;
     flex-shrink: 0;
-    /*height: 438px;*/
+    height: 2000px;
     margin-top: 20px;
     background-color: #f5f5f5;
 }
@@ -77,6 +95,8 @@ body {
 #product #product-list ul {
     display: flex;
     justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
 }
 
 #product #product-list ul li {
@@ -84,6 +104,7 @@ body {
     height: 352px;
     background-color: #fafafa;
     border-top: 1px solid #ffa500;
+    margin-top: 10px;
 }
 
 #product #product-list ul li:nth-child(2) {
@@ -112,13 +133,13 @@ body {
     width: 160px;
     height: 160px;
     opacity: 0.8;
-    margin: 37px;
+    margin: 10px;
 }
 
 #product #product-list ul li a .discount {
     font-size: 12px;
     color: #b0b0b0;
-    margin: 15px 0;
+    margin: 5px 0;
 }
 
 #product #product-list ul li a .item_price {
@@ -127,47 +148,6 @@ body {
 
 #product #product-list ul li a:hover img {
     opacity: 1;
-}
-
-#product #product-list .time {
-    background-color: #f1eded;
-}
-
-#product #product-list .time .name {
-    margin-top: 53px;
-    font-size: 21px;
-    color: #ef3a3b;
-}
-
-#product #product-list .time img {
-    width: 34px;
-    height: 53px;
-}
-
-#product #product-list .time .text {
-    font-size: 15px;
-    color: rgba(0, 0, 0, 0.54);
-}
-
-#product #product-list .time .flashTime {
-    margin: 28px 33px 0;
-    color: #fff;
-    font-size: 24px;
-    line-height: 46px;
-    display: flex;
-    justify-content: center;
-}
-
-#product #product-list .time .flashTime .box {
-    width: 46px;
-    height: 46px;
-    background-color: #605751;
-}
-
-#product #product-list .time .flashTime .dosh {
-    height: 46px;
-    font-size: 28px;
-    color: #605751;
 }
 
 #content {

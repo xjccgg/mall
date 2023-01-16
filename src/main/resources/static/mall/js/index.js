@@ -39,15 +39,20 @@ function showContent(){
         el.hidden = true;
     });
 }
-//
-// $(document).ready(function () {
-//     var menuYloc = $("#header").offset().top; //此ID为随着屏幕滚动div的ID
-//     $(window).scroll(function () {
-//         var offsetTop = menuYloc + $(window).scrollTop() + "px";
-//         $("#header").animate({ top: offsetTop }, { duration: 600, queue: false }); //此ID为随着屏幕滚动div的ID
-//     });
-// });
 
-// document.addEventListener("DOMContentLoaded",function(){
-//     showContent();
-// },false);
+function refreshProductList(configType) {
+    $('#product-list').load("http://127.0.0.1:28089/goods/productList?" + "configType=" + configType);
+    var product = document.getElementById('product-list');
+    product.hidden = false;
+    // $.ajax({
+    //     url: "http://127.0.0.1:28089/goods/productList?" + "configType=" + configType,
+    //     type: "get",
+    //     success: function (data) {
+    //         $("#product-list").html(data);
+    //     }
+    // })
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+    showContent();
+},false);

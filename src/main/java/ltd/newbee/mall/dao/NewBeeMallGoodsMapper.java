@@ -8,6 +8,7 @@
  */
 package ltd.newbee.mall.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
 import ltd.newbee.mall.entity.StockNumDTO;
 import ltd.newbee.mall.util.PageQueryUtil;
@@ -15,7 +16,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface NewBeeMallGoodsMapper {
+public interface NewBeeMallGoodsMapper extends BaseMapper<NewBeeMallGoods> {
     int deleteByPrimaryKey(Long goodsId);
 
     int insert(NewBeeMallGoods record);

@@ -8,10 +8,13 @@
  */
 package ltd.newbee.mall.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
+@TableName(value = "tb_newbee_mall_goods_info", autoResultMap = true)
 public class NewBeeMallGoods {
     private Long goodsId;
 

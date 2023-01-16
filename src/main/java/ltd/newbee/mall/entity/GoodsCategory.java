@@ -8,10 +8,12 @@
  */
 package ltd.newbee.mall.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
+@TableName(value = "tb_newbee_mall_goods_category", autoResultMap = true)
 public class GoodsCategory {
     private Long categoryId;
 

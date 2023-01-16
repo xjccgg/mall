@@ -8,12 +8,19 @@
  */
 package ltd.newbee.mall.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.controller.vo.NewBeeMallIndexConfigGoodsVO;
+import ltd.newbee.mall.dao.GoodsCategoryMapper;
 import ltd.newbee.mall.dao.IndexConfigMapper;
 import ltd.newbee.mall.dao.NewBeeMallGoodsMapper;
+import ltd.newbee.mall.entity.GoodsCategory;
 import ltd.newbee.mall.entity.IndexConfig;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
+import ltd.newbee.mall.service.NewBeeMallCategoryService;
 import ltd.newbee.mall.service.NewBeeMallIndexConfigService;
 import ltd.newbee.mall.util.BeanUtil;
 import ltd.newbee.mall.util.PageQueryUtil;
@@ -28,10 +35,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class NewBeeMallIndexConfigServiceImpl implements NewBeeMallIndexConfigService {
+public class NewBeeMallIndexConfigServiceImpl extends ServiceImpl<NewBeeMallGoodsMapper,NewBeeMallGoods> implements NewBeeMallIndexConfigService {
 
     @Autowired
     private IndexConfigMapper indexConfigMapper;
+
+    @Autowired
+    private GoodsCategoryMapper goodsCategoryMapper;
 
     @Autowired
     private NewBeeMallGoodsMapper goodsMapper;
@@ -108,6 +118,29 @@ public class NewBeeMallIndexConfigServiceImpl implements NewBeeMallIndexConfigSe
             }
         }
         return newBeeMallIndexConfigGoodsVOS;
+    }
+
+    /**
+     * 返回分页的商品对象(产品列表)
+     * @return
+     */
+    @Override
+    public List<NewBeeMallGoods> getGoodsForProduct(int configType, int order){
+        List<GoodsCategory> goodsTwoCategories = goodsCategoryMapper.selectList(Wrappers.lambdaQuery(new GoodsCategory())
+                .eq(GoodsCategory::getParentId, configType));
+        List<Long> cateGoryIds = goodsTwoCategories.stream().map(GoodsCategory::getCategoryId).collect(Collectors.toList());
+        if (cateGoryIds.size() > 0){
+            List<GoodsCategory> goodsThreeCategories = goodsCategoryMapper.selectList(Wrappers.lambdaQuery(new GoodsCategory())
+                    .in(GoodsCategory::getParentId, cateGoryIds));
+            List<Long> cateGoryThreeIds = goodsThreeCategories.stream().map(GoodsCategory::getCategoryId).collect(Collectors.toList());
+            cateGoryIds.addAll(cateGoryThreeIds);
+        }
+        cateGoryIds.add((long) configType);
+
+        List<NewBeeMallGoods> goods = list(Wrappers.lambdaQuery(new NewBeeMallGoods())
+                .in(NewBeeMallGoods::getGoodsCategoryId, cateGoryIds)
+                .orderByDesc(NewBeeMallGoods::getCreateTime));
+        return goods;
     }
 
     @Override
