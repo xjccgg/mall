@@ -23,8 +23,10 @@ function showProduct(){
     Array.prototype.forEach.call(content, function(el) {
         el.hidden = true;
     });
-    var product = document.getElementById('product');
-    product.hidden = false;
+    var product = document.getElementsByClassName('product');
+    Array.prototype.forEach.call(product, function(el) {
+        el.hidden = false;
+    });
 }
 
 function showContent(){
@@ -32,6 +34,20 @@ function showContent(){
     Array.prototype.forEach.call(content, function(el) {
         el.hidden = false;
     });
-    var product = document.getElementById('product');
-    product.hidden = true;
+    var product = document.getElementsByClassName('product');
+    Array.prototype.forEach.call(product, function(el) {
+        el.hidden = true;
+    });
 }
+//
+// $(document).ready(function () {
+//     var menuYloc = $("#header").offset().top; //此ID为随着屏幕滚动div的ID
+//     $(window).scroll(function () {
+//         var offsetTop = menuYloc + $(window).scrollTop() + "px";
+//         $("#header").animate({ top: offsetTop }, { duration: 600, queue: false }); //此ID为随着屏幕滚动div的ID
+//     });
+// });
+
+// document.addEventListener("DOMContentLoaded",function(){
+//     showContent();
+// },false);
