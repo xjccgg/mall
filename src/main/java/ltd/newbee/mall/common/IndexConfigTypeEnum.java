@@ -8,6 +8,8 @@
  */
 package ltd.newbee.mall.common;
 
+import lombok.Data;
+
 /**
  * @author 13
  * @qq交流群 796794009
@@ -17,20 +19,25 @@ package ltd.newbee.mall.common;
  */
 public enum IndexConfigTypeEnum {
 
-    DEFAULT(0, "DEFAULT"),
-    INDEX_SEARCH_HOTS(1, "INDEX_SEARCH_HOTS"),
-    INDEX_SEARCH_DOWN_HOTS(2, "INDEX_SEARCH_DOWN_HOTS"),
-    INDEX_GOODS_HOT(3, "INDEX_GOODS_HOTS"),
-    INDEX_GOODS_NEW(4, "INDEX_GOODS_NEW"),
-    INDEX_GOODS_RECOMMOND(5, "INDEX_GOODS_RECOMMOND");
+    DEFAULT(0, "DEFAULT","默认"),
+    INDEX_SEARCH_HOTS(1, "INDEX_SEARCH_HOTS","搜索框热搜"),
+    INDEX_SEARCH_DOWN_HOTS(2, "INDEX_SEARCH_DOWN_HOTS","搜索下拉框热搜"),
+    INDEX_GOODS_HOT(3, "INDEX_GOODS_HOTS","热门产品"),
+    INDEX_GOODS_NEW(4, "INDEX_GOODS_NEW","新品上线"),
+    INDEX_GOODS_RECOMMEND(5, "INDEX_GOODS_RECOMMEND","主要产品"),
+    INDEX_GOODS_CLASS(6, "INDEX_GOODS_CLASS","产品类别"),
+    ;
 
     private int type;
 
     private String name;
 
-    IndexConfigTypeEnum(int type, String name) {
+    private String desc;
+
+    IndexConfigTypeEnum(int type, String name,String desc) {
         this.type = type;
         this.name = name;
+        this.desc = desc;
     }
 
     public static IndexConfigTypeEnum getIndexConfigTypeEnumByType(int type) {
@@ -56,5 +63,13 @@ public enum IndexConfigTypeEnum {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }
