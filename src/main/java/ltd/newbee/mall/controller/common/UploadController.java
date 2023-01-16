@@ -12,6 +12,7 @@ import ltd.newbee.mall.common.Constants;
 import ltd.newbee.mall.util.NewBeeMallUtils;
 import ltd.newbee.mall.util.Result;
 import ltd.newbee.mall.util.ResultGenerator;
+import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
@@ -126,7 +127,12 @@ public class UploadController {
                         throw new IOException("文件夹创建失败,路径为：" + fileDirectory);
                     }
                 }
-                multipartFiles.get(i).transferTo(destFile);
+                MultipartFile multipartFile = multipartFiles.get(i);
+                Thumbnails.of(multipartFile.getInputStream())
+                        .scale(0.5)
+                        .outputQuality(0.1)
+                        .toFile(destFile);
+//                multipartFiles.get(i).transferTo(destFile);
                 fileNames.add(NewBeeMallUtils.getHost(new URI(httpServletRequest.getRequestURL() + "")) + "/upload/" + newFileName);
             } catch (IOException e) {
                 e.printStackTrace();
