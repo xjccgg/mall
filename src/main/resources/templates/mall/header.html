@@ -10,45 +10,47 @@
     <link rel="stylesheet" th:href="@{/mall/styles/header.css}">
     <link rel="stylesheet" th:href="@{'/mall/styles/'+${path}+'.css'}">
     <link rel="stylesheet" th:href="@{/admin/plugins/sweetalert2/sweetalert2.min.css}"/>
-    <meta name="keywords" content="新蜂商城,newbee-mall,新蜂,商城,开源商城,newbee,企业级商城,大型商城项目,Java商城,springboot商城,SpringBoot商城项目,Spring Boot 大型线上商城项目实战教程" />
-    <meta name="description" content="newbee-mall 项目（新蜂商城）是一套电商系统，包括 newbee-mall 商城系统及 newbee-mall-admin 商城后台管理系统，基于 Spring Boot 2.X 及相关技术栈开发。前台商城系统包含首页门户、商品分类、新品上线、首页轮播、商品推荐、商品搜索、商品展示、购物车、订单结算、订单流程、个人订单管理、会员中心、帮助中心等模块。后台管理系统包含数据面板、轮播图管理、商品管理、订单管理、会员管理、分类管理、设置等模块。Spring Boot 大型线上商城项目实战教程"/>
 </head>
 <nav id="nav" th:fragment="nav-fragment">
     <div class="banner_x center">
         <a th:href="@{/index}" class="logo"><h1>SICHUAN OBES TOOL CORP.LTD</h1></a>
     </div>
 </nav>
-<header id="header" th:fragment="header-fragment">
-    <div class="center">
-        <ul class="fl">
-            <li><a th:href="@{/index}">首页</a></li>
-            <li><a th:href="@{/admin}">产品</a></li>
-            <!--        <div class="all-sort-list">-->
-            <!--            <th:block th:each="category : ${categories}">-->
-            <!--            <div class="item">-->
-            <!--                <h3><span>·</span><a href="##"><th:block th:text="${category.categoryName}"></th:block></a></h3>-->
-            <!--                <div class="item-list clearfix">-->
-            <!--                    <div class="subitem">-->
-            <!--                        <th:block th:each="secondLevelCategory : ${category.secondLevelCategoryVOS}">-->
-            <!--                        <dl class="fore1">-->
-            <!--                            <dt><a href="#"><th:block th:text="${secondLevelCategory.categoryName}"></th:block></a></dt>-->
-            <!--                            <dd>-->
-            <!--                                <th:block th:each="thirdLevelCategory : ${secondLevelCategory.thirdLevelCategoryVOS}">-->
-            <!--                                <em><a href="#"th:href="@{'/search?goodsCategoryId='+${thirdLevelCategory.categoryId}}">-->
-            <!--                                    <th:block th:text="${thirdLevelCategory.categoryName}"></th:block>-->
-            <!--                                </a></em>-->
-            <!--                                </th:block>-->
-            <!--                            </dd>-->
-            <!--                        </dl>-->
-            <!--                        </th:block>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            </th:block>-->
-            <!--        </div>-->
-            <li><a th:href="@{/index}">公司简介  </a></li>
-            <li><a th:href="@{/index}">联系我们</a></li>
-        </ul>
-    </div>
-</header>
+<!--<div id="header" th:fragment="header-fragment">-->
+<!--    <div class="center">-->
+<!--        <ul class="fl">-->
+<!--            <li><a th:href="@{/index}">首页</a></li>-->
+<!--            <li><a th:href="@{/admin}">产品</a>-->
+<!--                    <ul class="all-sort-list" >-->
+<!--                        <li>产品1</li>-->
+<!--                        <li>产品2</li>-->
+<!--                        <li>产品3</li>-->
+<!--&lt;!&ndash;                        <th:block th:each="category : ${categories}">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="item">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <h3><span>·</span><a href="##"><th:block th:text="${category.categoryName}"></th:block></a></h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="item-list clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="subitem">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <th:block th:each="secondLevelCategory : ${category.secondLevelCategoryVOS}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <dl class="fore1">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <dt><a href="#"><th:block th:text="${secondLevelCategory.categoryName}"></th:block></a></dt>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <dd>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <th:block th:each="thirdLevelCategory : ${secondLevelCategory.thirdLevelCategoryVOS}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <em><a href="#"th:href="@{'/search?goodsCategoryId='+${thirdLevelCategory.categoryId}}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <th:block th:text="${thirdLevelCategory.categoryName}"></th:block>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </a></em>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </th:block>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </dd>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </dl>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </th:block>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </th:block>&ndash;&gt;-->
+<!--                    </ul>-->
+<!--            </li>-->
+<!--            <li><a th:href="@{/index}">公司简介  </a></li>-->
+<!--            <li><a th:href="@{/index}">联系我们</a></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
 </html>

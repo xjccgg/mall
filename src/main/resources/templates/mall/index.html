@@ -5,9 +5,52 @@
 </head>
 <body>
 <nav th:replace="mall/header::nav-fragment"></nav>
-<header th:replace="mall/header::header-fragment"></header>
-<content id="content">
-    <div id="banner">
+<div id="header">
+    <div class="center">
+        <ul class="fl">
+            <li onclick="showContent()">首页</li>
+            <li onclick="showProduct()">产品
+                <ul class="all-sort-list" >
+                    <li>产品1</li>
+                    <li>产品2</li>
+                    <li>产品3</li>
+                </ul>
+            </li>
+            <li><a th:href="@{/index}">公司简介  </a></li>
+            <li><a th:href="@{/index}">联系我们</a></li>
+        </ul>
+    </div>
+</div>
+<div id="product" hidden="true">
+    <div id="product-list" class="product">
+        <h1>产品列表</h1>
+        <ul>
+            <!-- 已配置推荐商品则显示配置内容 -->
+            <th:block th:unless="${#lists.isEmpty(recommendGoodses)}">
+                <th:block th:each="recommendGoods : ${recommendGoodses}">
+                    <li>
+                        <a th:href="@{'/goods/detail/'+${recommendGoods.goodsId}}">
+                            <div class="info discount" th:text="${recommendGoods.tag}">
+                                新品
+                            </div>
+                            <img th:src="@{${recommendGoods.goodsCoverImg}}" th:alt="${recommendGoods.goodsName}">
+                            <p class="name" th:text="${recommendGoods.goodsName}">NewBeeMall</p>
+                            <p class="item_price" th:text="${'$'+recommendGoods.originalPrice}+'~'+${recommendGoods.sellingPrice}">NewBeeMall</p>
+                            <p class="counter">猜你喜欢</p>
+                            <div class="comment">
+                                <p>OBESTOOL 110V/220V electric Troweling machine OEM wall grinding machine</p>
+                            </div>
+                        </a>
+                    </li>
+                </th:block>
+            </th:block>
+        </ul>
+    </div>
+
+</div>
+
+<div id="content" class="main-content">
+    <div id="banner" class="content">
         <div class="swiper-container fl">
             <div class="banner-wrapper">
                 <!-- 配置了轮播图则显示后台配置的轮播图 -->
@@ -24,7 +67,57 @@
         </div>
     </div>
 
-    <div id="flash">
+    <div id="recommend" class="content">
+        <h1>为你推荐</h1>
+        <ul>
+            <!-- 已配置推荐商品则显示配置内容 -->
+            <th:block th:unless="${#lists.isEmpty(recommendGoodses)}">
+                <th:block th:each="recommendGoods : ${recommendGoodses}">
+                    <li>
+                        <a th:href="@{'/goods/detail/'+${recommendGoods.goodsId}}">
+                            <div class="info discount" th:text="${recommendGoods.tag}">
+                                新品
+                            </div>
+                            <img th:src="@{${recommendGoods.goodsCoverImg}}" th:alt="${recommendGoods.goodsName}">
+                            <p class="name" th:text="${recommendGoods.goodsName}">NewBeeMall</p>
+                            <p class="item_price" th:text="${'$'+recommendGoods.originalPrice}+'~'+${recommendGoods.sellingPrice}">NewBeeMall</p>
+                            <p class="counter">猜你喜欢</p>
+                            <div class="comment">
+                                <p>OBESTOOL 110V/220V electric Troweling machine OEM wall grinding machine</p>
+                            </div>
+                        </a>
+                    </li>
+                </th:block>
+            </th:block>
+        </ul>
+    </div>
+
+    <div id="mainProduct" class="content">
+        <h1>主要产品</h1>
+        <ul>
+            <!-- 已配置推荐商品则显示配置内容 -->
+            <th:block th:unless="${#lists.isEmpty(recommendGoodses)}">
+                <th:block th:each="recommendGoods : ${recommendGoodses}">
+                    <li>
+                        <a th:href="@{'/goods/detail/'+${recommendGoods.goodsId}}">
+                            <div class="info discount" th:text="${recommendGoods.tag}">
+                                新品
+                            </div>
+                            <img th:src="@{${recommendGoods.goodsCoverImg}}" th:alt="${recommendGoods.goodsName}">
+                            <p class="name" th:text="${recommendGoods.goodsName}">NewBeeMall</p>
+                            <p class="item_price" th:text="${'$'+recommendGoods.originalPrice}+'~'+${recommendGoods.sellingPrice}">NewBeeMall</p>
+                            <p class="counter">猜你喜欢</p>
+                            <div class="comment">
+                                <p>OBESTOOL 110V/220V electric Troweling machine OEM wall grinding machine</p>
+                            </div>
+                        </a>
+                    </li>
+                </th:block>
+            </th:block>
+        </ul>
+    </div>
+
+    <div id="flash" class="content">
         <h2>热门产品</h2>
         <ul>
             <!-- 已配置新品则显示配置内容 -->
@@ -54,56 +147,15 @@
         </ul>
     </div>
 
-    <div id="recommend">
-        <h1>为你推荐</h1>
-        <ul>
-            <!-- 已配置推荐商品则显示配置内容 -->
-            <th:block th:unless="${#lists.isEmpty(recommendGoodses)}">
-                <th:block th:each="recommendGoods : ${recommendGoodses}">
-                    <li>
-                        <a th:href="@{'/goods/detail/'+${recommendGoods.goodsId}}">
-                            <div class="info discount" th:text="${recommendGoods.tag}">
-                                新品
-                            </div>
-                            <img th:src="@{${recommendGoods.goodsCoverImg}}" th:alt="${recommendGoods.goodsName}">
-                            <p class="name" th:text="${recommendGoods.goodsName}">NewBeeMall</p>
-                            <p class="item_price" th:text="${'$'+recommendGoods.originalPrice}+'~'+${recommendGoods.sellingPrice}">NewBeeMall</p>
-                            <p class="counter">猜你喜欢</p>
-                            <div class="comment">
-                                <p>OBESTOOL 110V/220V electric Troweling machine OEM wall grinding machine</p>
-                            </div>
-                        </a>
-                    </li>
-                </th:block>
-            </th:block>
-        </ul>
+    <div id="aboutUs" class="content">
+        <h1>关于我们</h1>
     </div>
 
-    <div id="mainProduct">
-        <h1>主要产品</h1>
-        <ul>
-            <!-- 已配置推荐商品则显示配置内容 -->
-            <th:block th:unless="${#lists.isEmpty(recommendGoodses)}">
-                <th:block th:each="recommendGoods : ${recommendGoodses}">
-                    <li>
-                        <a th:href="@{'/goods/detail/'+${recommendGoods.goodsId}}">
-                            <div class="info discount" th:text="${recommendGoods.tag}">
-                                新品
-                            </div>
-                            <img th:src="@{${recommendGoods.goodsCoverImg}}" th:alt="${recommendGoods.goodsName}">
-                            <p class="name" th:text="${recommendGoods.goodsName}">NewBeeMall</p>
-                            <p class="item_price" th:text="${'$'+recommendGoods.originalPrice}+'~'+${recommendGoods.sellingPrice}">NewBeeMall</p>
-                            <p class="counter">猜你喜欢</p>
-                            <div class="comment">
-                                <p>OBESTOOL 110V/220V electric Troweling machine OEM wall grinding machine</p>
-                            </div>
-                        </a>
-                    </li>
-                </th:block>
-            </th:block>
-        </ul>
+    <div id="contactUs" class="content">
+        <h1>联系我们</h1>
     </div>
-</content>
+
+</div>
 <div th:replace="mall/footer::footer-fragment"></div>
 <!-- jQuery -->
 <script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>

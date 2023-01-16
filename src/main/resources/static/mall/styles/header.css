@@ -135,6 +135,11 @@
     background-color: #1baeae;
 }
 
+#header li .all-sort-list {
+    display: none;
+}
+
+
 
 #nav {
     width: 100%;
