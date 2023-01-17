@@ -2,9 +2,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="mall/header::head-fragment('NewBee商城-首页','index')">
-    <script>
-
-    </script>
 </head>
 <body>
 <nav th:replace="mall/header::nav-fragment"></nav>
@@ -12,13 +9,7 @@
     <div class="center">
         <ul class="fl">
             <li onclick="showContent()">首页</li>
-            <li onclick="showProduct()">产品
-                <ul class="all-sort-list" >
-                    <li>产品1</li>
-                    <li>产品2</li>
-                    <li>产品3</li>
-                </ul>
-            </li>
+            <li onclick="showProduct()">产品</li>
             <li><a th:href="@{/index}">公司简介  </a></li>
             <li><a th:href="@{/index}">联系我们</a></li>
         </ul>
@@ -28,13 +19,35 @@
     <div id="product-class-list" class="product">
         <h3>产品分类</h3>
         <hr />
-        <ul>
+        <ul id="firstUl">
             <th:block th:unless="${#lists.isEmpty(categories)}">
                 <th:block th:each="category : ${categories}">
-                    <li>
+                    <li class="firstLi">
                         <div class="info discount" th:text="${category.categoryName}"  th:onclick="refreshProductList([[${category.categoryId}]])">
                             新品
                         </div>
+                        <ul id="secondUl">
+                            <th:block th:unless="${#lists.isEmpty(category.secondLevelCategoryVOS)}">
+                                <th:block th:each="secondCategory : ${category.secondLevelCategoryVOS}">
+                                    <li>
+                                        <div class="info discount" th:text="${secondCategory.categoryName}"  th:onclick="refreshProductList([[${secondCategory.categoryId}]])">
+                                            新品
+                                        </div>
+                                        <ul id="thirdUl">
+                                            <th:block th:unless="${#lists.isEmpty(secondCategory.thirdLevelCategoryVOS)}">
+                                                <th:block th:each="thirdCategory : ${secondCategory.thirdLevelCategoryVOS}">
+                                                    <li>
+                                                        <div class="info discount" th:text="${thirdCategory.categoryName}"  th:onclick="refreshProductList([[${thirdCategory.categoryId}]])">
+                                                            新品
+                                                        </div>
+                                                    </li>
+                                                </th:block>
+                                            </th:block>
+                                        </ul>
+                                    </li>
+                                </th:block>
+                            </th:block>
+                        </ul>
                     </li>
                 </th:block>
             </th:block>
@@ -61,7 +74,6 @@
             </th:block>
         </ul>
     </div>
-
 </div>
 
 <div id="content" class="main-content">
@@ -82,30 +94,62 @@
         </div>
     </div>
 
-    <div id="recommend" class="content">
-        <h1>为你推荐</h1>
-        <ul>
-            <!-- 已配置推荐商品则显示配置内容 -->
-            <th:block th:unless="${#lists.isEmpty(recommendGoodses)}">
-                <th:block th:each="recommendGoods : ${recommendGoodses}">
-                    <li>
-                        <a th:href="@{'/goods/detail/'+${recommendGoods.goodsId}}">
-                            <div class="info discount" th:text="${recommendGoods.tag}">
+    <div id="content-product" class="content">
+        <h1>产品列表</h1>
+        <div id="content-product-class-list" class="content">
+<!--            <h3>产品分类</h3>-->
+            <ul id="content-firstUl">
+                <th:block th:unless="${#lists.isEmpty(categories)}">
+                    <th:block th:each="category : ${categories}">
+                        <li>
+                            <div class="info discount" th:text="${category.categoryName}"  th:onclick="refreshContentProductList([[${category.categoryId}]])">
                                 新品
                             </div>
-                            <img th:src="@{${recommendGoods.goodsCoverImg}}" th:alt="${recommendGoods.goodsName}">
-                            <p class="name" th:text="${recommendGoods.goodsName}">NewBeeMall</p>
-                            <p class="item_price" th:text="${'$'+recommendGoods.originalPrice}+'~'+${recommendGoods.sellingPrice}">NewBeeMall</p>
-                            <p class="counter">猜你喜欢</p>
-                            <div class="comment">
-                                <p>OBESTOOL 110V/220V electric Troweling machine OEM wall grinding machine</p>
-                            </div>
-                        </a>
-                    </li>
+                            <ul id="content-secondUl">
+                                <th:block th:unless="${#lists.isEmpty(category.secondLevelCategoryVOS)}">
+                                    <th:block th:each="secondCategory : ${category.secondLevelCategoryVOS}">
+                                        <li>
+                                            <div class="info discount" th:text="${secondCategory.categoryName}"  th:onclick="refreshContentProductList([[${secondCategory.categoryId}]])">
+                                                新品
+                                            </div>
+                                            <ul id="content-thirdUl">
+                                                <th:block th:unless="${#lists.isEmpty(secondCategory.thirdLevelCategoryVOS)}">
+                                                    <th:block th:each="thirdCategory : ${secondCategory.thirdLevelCategoryVOS}">
+                                                        <li>
+                                                            <div class="info discount" th:text="${thirdCategory.categoryName}"  th:onclick="refreshContentProductList([[${thirdCategory.categoryId}]])">
+                                                                新品
+                                                            </div>
+                                                        </li>
+                                                    </th:block>
+                                                </th:block>
+                                            </ul>
+                                        </li>
+                                    </th:block>
+                                </th:block>
+                            </ul>
+                        </li>
+                    </th:block>
                 </th:block>
-            </th:block>
-        </ul>
+            </ul>
+        </div>
+
+        <div id="content-product-list" th:fragment="contentProductGoods" class="content">
+            <ul>
+                <!-- 已配置推荐商品则显示配置内容 -->
+                <th:block th:unless="${#lists.isEmpty(contentProductGoods)}">
+                    <th:block th:each="contentProductGood : ${contentProductGoods}">
+                        <li>
+                            <a th:href="@{'/goods/detail/'+${contentProductGood.goodsId}}">
+                                <img th:src="@{${contentProductGood.goodsCoverImg}}" th:alt="${contentProductGood.goodsName}">
+                                <p class="name" th:text="${contentProductGood.goodsName}">NewBeeMall</p>
+                            </a>
+                        </li>
+                    </th:block>
+                </th:block>
+            </ul>
+        </div>
     </div>
+
 
     <div id="mainProduct" class="content">
         <h1>主要产品</h1>
@@ -133,7 +177,7 @@
     </div>
 
     <div id="flash" class="content">
-        <h2>热门产品</h2>
+        <h1>热门产品</h1>
         <ul>
             <!-- 已配置新品则显示配置内容 -->
             <th:block th:unless="${#lists.isEmpty(newGoodses)}">
@@ -152,9 +196,13 @@
     </div>
 
     <div id="aboutUs" class="content">
-        <h1>关于我们</h1>
 
-        <div>
+        <h1>关于我们</h1>
+        <div id="aboutUsLogo">
+            <img src="http://127.0.0.1:28089/upload/20230117_1026355.jpg">
+            <img src="http://127.0.0.1:28089/upload/20230117_10173558.png">
+        </div>
+        <div id="aboutUsText">
             SICHUAN OBES TOOL CORP., LTD is a production and trading enterprise with the development concept of quality first and win-win cooperation, specializing in the supply of Hand tools, Benchwork tools,Measuring tools,Garden tools,woodworking tools,Cutting tools,pneumatic tools,Electric tools and Auto Maintenance tools to the global industrial and DIY market.
             OBESTOOL Oriented by product R&D management, we will build a one-stop hardware tools operation, distribution and service center. Focusing on the application scenarios of hardware tools, including factories, workshops, and Focusing on the application scenarios of hardware tools, including factories, workshops, and processing, auxiliary manufacturing, installation and maintenance, construction engineering, inspection and calibration etc. Our goal is to build OBES brand as a typical representative of high quality tools.
             Being an ISO9001/2000 certificated company, OBESTOOL enjoys a good reputation in tools market among our customers. Presently, we have dealt with many returned customers from over seventy countries and areas, including OEM. There are dozens of professional production and assembly lines, which ensure our entire product series are strictly in accordance with ISO, DIN, ANSI and JIS standards.

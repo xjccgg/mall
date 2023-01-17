@@ -100,4 +100,14 @@ public class GoodsController {
         return "mall/index::productGoods";
     }
 
+    @GetMapping("/goods/contentProductList")
+    public String contentProductList(@RequestParam("configType") int configType, HttpServletRequest request){
+        List<NewBeeMallGoods> goodsForProduct = newBeeMallIndexConfigService.getGoodsForProduct(configType, 0);
+        if(goodsForProduct.size() > 6){
+            goodsForProduct = goodsForProduct.subList(0, 6);
+        }
+        request.setAttribute("contentProductGoods",goodsForProduct);
+        return "mall/index::contentProductGoods";
+    }
+
 }

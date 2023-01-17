@@ -55,7 +55,12 @@ public class IndexController {
         request.setAttribute("recommendGoodses", recommendGoodses);//推荐商品
 
         List<NewBeeMallGoods> productGoods = newBeeMallIndexConfigService.getGoodsForProduct(109,1);
+        List<NewBeeMallGoods> contentProductGoods = newBeeMallIndexConfigService.getGoodsForProduct(109,1);
+        if(contentProductGoods.size() > 6){
+            contentProductGoods = contentProductGoods.subList(0,6);
+        }
         request.setAttribute("productGoods", productGoods);//推荐商品
+        request.setAttribute("contentProductGoods", contentProductGoods);//推荐商品
         return "mall/index";
     }
 }

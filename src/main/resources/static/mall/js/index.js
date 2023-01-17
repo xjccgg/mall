@@ -43,13 +43,10 @@ let firstLoad = 0;
 
 function refreshProductList(configType) {
     $('#product-list').load("http://127.0.0.1:28089/goods/productList?" + "configType=" + configType);
-    // $.ajax({
-    //     url: "http://127.0.0.1:28089/goods/productList?" + "configType=" + configType,
-    //     type: "get",
-    //     success: function (data) {
-    //         $("#product-list").html(data);
-    //     }
-    // })
+}
+
+function refreshContentProductList(configType) {
+    $('#content-product-list').load("http://127.0.0.1:28089/goods/contentProductList?" + "configType=" + configType);
 }
 
 document.addEventListener("DOMContentLoaded",function(){

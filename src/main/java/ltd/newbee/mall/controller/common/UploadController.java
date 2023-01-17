@@ -129,8 +129,9 @@ public class UploadController {
                 }
                 MultipartFile multipartFile = multipartFiles.get(i);
                 Thumbnails.of(multipartFile.getInputStream())
+                        .imageType(BufferedImage.TYPE_INT_ARGB)
                         .scale(0.5)
-                        .outputQuality(0.1)
+                        .outputQuality(1)
                         .toFile(destFile);
 //                multipartFiles.get(i).transferTo(destFile);
                 fileNames.add(NewBeeMallUtils.getHost(new URI(httpServletRequest.getRequestURL() + "")) + "/upload/" + newFileName);

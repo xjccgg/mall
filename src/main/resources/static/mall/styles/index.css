@@ -58,7 +58,7 @@ body {
     width: 300px;
     margin-top: 20px;
     float: left;
-    background-color: #f5f5f5;
+    background-color: #f6f9f9;
 }
 
 #product #product-class-list > h3 {
@@ -67,15 +67,42 @@ body {
     line-height: 58px;
 }
 
-#product #product-class-list ul {
-}
-
-#product #product-class-list ul li {
-    width: 300px;
-    background-color: #fafafa;
+#product #product-class-list #firstUl li {
+    width: 100px;
     display: block;
     font-size: 14px;
     text-align: left;
+    font-weight: bold;
+    height: 30px;
+    margin-left: 10px;
+}
+
+#product #product-class-list #firstUl li:nth-child(1) {
+    margin-top: 10px;
+}
+
+#product #product-class-list #firstUl li #secondUl {
+    display: none;
+}
+
+#product #product-class-list #firstUl li:hover #secondUl {
+    display: block;
+    z-index: 9;
+    margin-left: 10px;
+}
+
+#product #product-class-list #firstUl li:hover + li {
+    margin-top: 120px;
+}
+
+#product #product-class-list #firstUl li #secondUl li #thirdUl {
+    display: none;
+}
+
+#product #product-class-list #firstUl li #secondUl li:hover #thirdUl {
+    display: block;
+    z-index: 99;
+    margin-left: 10px;
 }
 
 #product #product-list {
@@ -83,8 +110,7 @@ body {
     width: 1000px;
     flex-shrink: 0;
     height: 2000px;
-    margin-top: 20px;
-    background-color: #f5f5f5;
+    background-color: #f6f9f9;
 }
 
 #product #product-list > h1 {
@@ -97,6 +123,7 @@ body {
     justify-content: space-between;
     align-content: space-between;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 #product #product-list ul li {
@@ -104,7 +131,7 @@ body {
     height: 352px;
     background-color: #fafafa;
     border-top: 1px solid #ffa500;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 
 #product #product-list ul li a .name {
@@ -184,17 +211,166 @@ body {
     height: 100%;
 }
 
+#content #content-product{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 1226px;
+    height: 760px;
+    margin-top: 20px;
+    background-color: #f6f9f9;
+}
+
+#content #content-product > h1 {
+    text-align: center;
+    width: 100%;
+    height: 158px;
+    line-height: 158px;
+    float: top;
+}
+
+#content #content-product-class-list{
+    justify-content: center;
+    width: 300px;
+    float: left;
+    background-color: #f6f9f9;
+    height: 400px;
+}
+
+#content #content-product-class-list > h3 {
+    text-align: center;
+    height: 58px;
+    line-height: 58px;
+}
+
+#content #content-product-class-list ul li {
+    width: 300px;
+    background-color: #fafafa;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+}
+
+#content #content-product-class-list #content-firstUl li:nth-child(1) {
+    margin-top: 10px;
+}
+
+#content #content-product-class-list #content-firstUl li #content-secondUl {
+    display: none;
+}
+
+#content #content-product-class-list #content-firstUl li:hover #content-secondUl {
+    display: block;
+    z-index: 9;
+}
+
+#content #content-product-class-list #content-firstUl li:hover + li {
+    margin-top: 120px;
+}
+
+#content #content-product-class-list #content-firstUl li #content-secondUl li #content-thirdUl {
+    display: none;
+}
+
+#content #content-product-class-list #content-firstUl li #content-secondUl li:hover #content-thirdUl {
+    display: block;
+    z-index: 99;
+}
+
+#content #content-product-list {
+    margin-left: 10px;
+    width: 896px;
+    flex-shrink: 0;
+    height: 600px;
+    margin-right: 20px;
+    /*background-color: #B4D5FF;*/
+    float: right;
+}
+
+#content #content-product-list ul {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+#content #content-product-list ul li {
+    width: 234px;
+    height: 250px;
+    background-color: #fafafa;
+    border-top: 1px solid #ffa500;
+    margin: 10px 10px 10px 10px;
+}
+
+#content #content-product-list ul li a .name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#content #content-product-list ul li a .comment p{
+    font-size: 14px;
+    color: #939da3;
+}
+
+#content #content-product-list ul li:nth-child(2) {
+    border-color: #008000;
+}
+
+#content #content-product-list ul li:nth-child(3) {
+    border-color: #00f;
+}
+
+#content #content-product-list ul li:nth-child(4) {
+    border-color: #f00;
+}
+
+#content #content-product-list ul li:nth-child(5) {
+    border-color: #008080;
+}
+
+#content #content-product-list ul li a {
+    display: block;
+    text-align: center;
+}
+
+#content #content-product-list ul li a img {
+    width: 160px;
+    height: 160px;
+    opacity: 0.8;
+    margin: 10px;
+}
+
+#content #content-product-list ul li a .discount {
+    font-size: 12px;
+    color: #b0b0b0;
+    margin: 5px 0;
+}
+
+#content #content-product-list ul li a .item_price {
+    font-size: 20px;
+    color: #1baeae;
+    margin-top: 15px;
+}
+
+#content #content-product-list ul li a:hover img {
+    opacity: 1;
+}
+
+
 #content #flash {
     width: 1226px;
     flex-shrink: 0;
-    height: 438px;
+    height: 538px;
     margin-top: 20px;
-    background-color: #f5f5f5;
+    background-color: #f6f9f9;
 }
 
-#content #flash > h2 {
-    height: 58px;
-    line-height: 58px;
+#content #flash > h1 {
+    height: 158px;
+    line-height: 158px;
+    text-align:center;
 }
 
 #content #flash ul {
@@ -299,7 +475,7 @@ body {
     flex-shrink: 0;
     height: 830px;
     margin-top: 20px;
-    background-color: #f5f5f5;
+    background-color: #f6f9f9;
 }
 
 #content #recommend > h1 {
@@ -429,7 +605,7 @@ body {
     flex-shrink: 0;
     height: 830px;
     margin-top: 20px;
-    background-color: #f5f5f5;
+    background-color: #f6f9f9;
 }
 
 #content #mainProduct > h1 {
@@ -556,17 +732,40 @@ body {
     width: 1226px;
     position: relative;
     flex-shrink: 0;
-    height: 830px;
+    height: 730px;
     margin-top: 20px;
-    background-color: #f5f5f5;
+    background-color: #f6f9f9;
+    background: url(../image/back1.png) no-repeat;
+    background-size: 100%;
+    background-position: center;
 }
 
 #content #aboutUs > h1 {
     height: 158px;
     line-height: 158px;
     text-align:center;
+    float: top;
+}
+#aboutUs #aboutUsLogo {
+    float: left;
+    width: 550px;
+    height: 240px;
 }
 
+#aboutUs #aboutUsLogo img{
+    width: 480px;
+    height: 240px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#aboutUs #aboutUsText{
+    width: 650px;
+    float: right;
+    font-size: 18px;
+    margin-right: 20px;
+}
 
 #content #contactUs {
     width: 1226px;
@@ -574,7 +773,10 @@ body {
     flex-shrink: 0;
     height: 830px;
     margin-top: 20px;
-    background-color: #f5f5f5;
+    background-color: #f6f9f9;
+    background: url(../image/back.png);
+    background-size: 100%;
+    background-position: center;
 }
 
 #content #contactUs > h1 {
