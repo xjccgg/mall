@@ -39,11 +39,10 @@ function showContent(){
         el.hidden = true;
     });
 }
+let firstLoad = 0;
 
 function refreshProductList(configType) {
     $('#product-list').load("http://127.0.0.1:28089/goods/productList?" + "configType=" + configType);
-    var product = document.getElementById('product-list');
-    product.hidden = false;
     // $.ajax({
     //     url: "http://127.0.0.1:28089/goods/productList?" + "configType=" + configType,
     //     type: "get",

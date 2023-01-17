@@ -107,6 +107,16 @@ body {
     margin-top: 10px;
 }
 
+#product #product-list ul li a .name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#product #product-list ul li a .comment p{
+    font-size: 14px;
+    color: #939da3;
+}
+
 #product #product-list ul li:nth-child(2) {
     border-color: #008000;
 }
@@ -125,7 +135,6 @@ body {
 
 #product #product-list ul li a {
     display: block;
-    font-size: 14px;
     text-align: center;
 }
 
@@ -143,7 +152,9 @@ body {
 }
 
 #product #product-list ul li a .item_price {
+    font-size: 20px;
     color: #1baeae;
+    margin-top: 15px;
 }
 
 #product #product-list ul li a:hover img {

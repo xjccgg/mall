@@ -25,7 +25,6 @@
     </div>
 </div>
 <div id="product">
-
     <div id="product-class-list" class="product">
         <h3>产品分类</h3>
         <hr />
@@ -50,9 +49,6 @@
                 <th:block th:each="productGood : ${productGoods}">
                     <li>
                         <a th:href="@{'/goods/detail/'+${productGood.goodsId}}">
-                            <div class="info discount" th:text="${productGood.tag}">
-                                新品
-                            </div>
                             <img th:src="@{${productGood.goodsCoverImg}}" th:alt="${productGood.goodsName}">
                             <p class="name" th:text="${productGood.goodsName}">NewBeeMall</p>
                             <div class="comment">
