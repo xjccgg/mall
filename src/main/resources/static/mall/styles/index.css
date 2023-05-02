@@ -106,7 +106,6 @@ body {
 }
 
 #product #product-list {
-    margin-left: 10px;
     width: 1000px;
     flex-shrink: 0;
     height: 2000px;
@@ -124,6 +123,7 @@ body {
     align-content: space-between;
     flex-wrap: wrap;
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 #product #product-list ul li {
@@ -284,7 +284,6 @@ body {
     width: 896px;
     flex-shrink: 0;
     height: 600px;
-    margin-right: 20px;
     /*background-color: #B4D5FF;*/
     float: right;
 }

@@ -10,8 +10,8 @@
         <ul class="fl">
             <li onclick="showContent()">首页</li>
             <li onclick="showProduct()">产品</li>
-            <li><a th:href="@{/index}">公司简介  </a></li>
-            <li><a th:href="@{/index}">联系我们</a></li>
+            <li><a href="#aboutUs">公司简介  </a></li>
+            <li><a href="#contactUs">联系我们</a></li>
         </ul>
     </div>
 </div>
@@ -84,9 +84,7 @@
                 <th:block th:unless="${#lists.isEmpty(carousels)}">
                     <th:block th:each="carousel : ${carousels}">
                         <div class="swiper-slide">
-                            <a th:href="@{${carousel.redirectUrl}}">
-                                <img th:src="@{${carousel.carouselUrl}}" alt="">
-                            </a>
+                            <img th:src="@{${carousel.carouselUrl}}" alt="">
                         </div>
                     </th:block>
                 </th:block>
@@ -199,8 +197,8 @@
 
         <h1>关于我们</h1>
         <div id="aboutUsLogo">
-            <img src="http://127.0.0.1:28089/upload/20230117_1026355.jpg">
-            <img src="http://127.0.0.1:28089/upload/20230117_10173558.png">
+            <img src="http://localhost:28089/upload/20230117_1026355.jpg">
+            <img src="http://localhost:28089/upload/20230117_10173558.png">
         </div>
         <div id="aboutUsText">
             SICHUAN OBES TOOL CORP., LTD is a production and trading enterprise with the development concept of quality first and win-win cooperation, specializing in the supply of Hand tools, Benchwork tools,Measuring tools,Garden tools,woodworking tools,Cutting tools,pneumatic tools,Electric tools and Auto Maintenance tools to the global industrial and DIY market.
