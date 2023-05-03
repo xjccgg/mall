@@ -44,6 +44,9 @@
 
 body {
     background-color: #f2f4f6;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #product {
@@ -69,7 +72,7 @@ body {
 
 #product #product-class-list #firstUl li {
     width: 100px;
-    display: block;
+    display: flex;
     font-size: 14px;
     text-align: left;
     font-weight: bold;
@@ -734,7 +737,7 @@ body {
     height: 730px;
     margin-top: 20px;
     background-color: #f6f9f9;
-    background: url(../image/back1.png) no-repeat;
+    /*background: url(../image/back1.png) no-repeat;*/
     background-size: 100%;
     background-position: center;
 }
@@ -773,7 +776,6 @@ body {
     height: 830px;
     margin-top: 20px;
     background-color: #f6f9f9;
-    background: url(../image/back.png);
     background-size: 100%;
     background-position: center;
 }
@@ -782,4 +784,26 @@ body {
     height: 158px;
     line-height: 158px;
     text-align:center;
+}
+
+#content #wechatPic {
+    width: 300px;
+    float: right;
+    margin-right: 150px;
+}
+
+#content #linePic {
+    width: 300px;
+    float: left;
+    margin-top: 60px;
+    margin-left: 200px;
+}
+
+
+#content #contactText{
+    width: 500px;
+    float: left;
+    font-size: 18px;
+    margin-right: 20px;
+    margin-left: 200px;
 }

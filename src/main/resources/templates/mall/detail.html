@@ -20,14 +20,13 @@
                     <li>产品3</li>
                 </ul>
             </li>
-            <li><a th:href="@{/index}">公司简介  </a></li>
-            <li><a th:href="@{/index}">联系我们</a></li>
+            <li onclick="showIntroduction()"><a th:href="@{/index}">公司简介  </a></li>
+            <li onclick="showContact()"><a th:href="@{/index}">联系我们</a></li>
         </ul>
     </div>
 </div>
 
 <div id="detail">
-
     <div class="intro mt20 w clearfix">
         <div class="left fl" style="position: relative;">
             <div class="swiper-container fl">

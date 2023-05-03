@@ -39,6 +39,21 @@ function showContent(){
         el.hidden = true;
     });
 }
+
+function showIntroduction(){
+    showContent();
+    // setTimeout("test()","1000")
+    window.location.hash='#aboutUs';
+    // document.getElementById('#aboutUs' ).scrollIntoView(true);
+}
+
+function showContact(){
+    showContent();
+    // setTimeout("test()","1000")
+    window.location.hash='#contactUs';
+    // document.getElementById('#contactUs' ).scrollIntoView(true);
+}
+
 let firstLoad = 0;
 
 function refreshProductList(configType) {
