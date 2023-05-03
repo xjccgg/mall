@@ -780,30 +780,62 @@ body {
     background-position: center;
 }
 
-#content #contactUs > h1 {
+#contactUs > h1 {
     height: 158px;
     line-height: 158px;
     text-align:center;
 }
 
-#content #wechatPic {
-    width: 300px;
-    float: right;
-    margin-right: 150px;
+#contactUs #contactUsContent {
+    border-width: 2px 0 0 0;
+    border-style: solid;
+    border-color: #c9dae1;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-#content #linePic {
-    width: 300px;
-    float: left;
-    margin-top: 60px;
-    margin-left: 200px;
-}
-
-
-#content #contactText{
+#contactUs #contactLogo {
     width: 500px;
     float: left;
-    font-size: 18px;
+    margin-top: 20px;
+    margin-left: 100px;
+    border-width: 0 2px 0 0;
+    border-style: groove;
+    border-color: #c9dae1;
+}
+
+#contactUs #companyLogo {
+    width: 400px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 200px;
+}
+
+#contactUs #wechatPic {
+    width: 200px;
+    float: left;
+    margin-left: 20px;
+}
+
+#contactUs #linePic {
+    width: 200px;
+    float: left;
+    margin-left: 20px;
+}
+
+#contactUs #contactText{
+    width: 500px;
+    float: right;
+    font-size: 15px;
     margin-right: 20px;
-    margin-left: 200px;
+    margin-top: 80px;
+    color: #1b1e21;
+}
+
+#contactUs #contactText a{
+    color: #939da3;
+}
+
+#contactUs #contactText > h2{
+    line-height: 80px;
 }
