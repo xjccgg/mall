@@ -15,6 +15,7 @@
         </ul>
     </div>
 </div>
+
 <div id="product">
     <div id="product-class-list" class="product">
         <h3>Product Category</h3>
@@ -91,29 +92,29 @@
             </div>
         </div>
     </div>
+
     <div id="content-product" class="content">
         <h1>Product Category</h1>
         <div id="content-product-class-list" class="content">
-<!--            <h3>产品分类</h3>-->
             <ul id="content-firstUl">
                 <th:block th:unless="${#lists.isEmpty(categories)}">
                     <th:block th:each="category : ${categories}">
-                        <li>
-                            <div class="info discount" th:text="${category.categoryName}"  th:onclick="refreshContentProductList([[${category.categoryId}]])">
+                        <li onclick="hiddenUl(event)" class="firstLi">
+                            <div class="info discount firstUl" th:text="${category.categoryName}"  th:onclick="refreshContentProductList([[${category.categoryId}]])">
                                 新品
                             </div>
-                            <ul id="content-secondUl">
+                            <ul id="content-secondUl" hidden = true class="secondUL">
                                 <th:block th:unless="${#lists.isEmpty(category.secondLevelCategoryVOS)}">
                                     <th:block th:each="secondCategory : ${category.secondLevelCategoryVOS}">
-                                        <li>
-                                            <div class="info discount" th:text="${secondCategory.categoryName}"  th:onclick="refreshContentProductList([[${secondCategory.categoryId}]])">
+                                        <li onclick="hiddenUl(event)" class="secondLi">
+                                            <div class="info discount secondUl" th:text="${secondCategory.categoryName}"  th:onclick="refreshContentProductList([[${secondCategory.categoryId}]])">
                                                 新品
                                             </div>
-                                            <ul id="content-thirdUl">
+                                            <ul id="content-thirdUl" hidden = true class="thirdUL">
                                                 <th:block th:unless="${#lists.isEmpty(secondCategory.thirdLevelCategoryVOS)}">
                                                     <th:block th:each="thirdCategory : ${secondCategory.thirdLevelCategoryVOS}">
-                                                        <li>
-                                                            <div class="info discount" th:text="${thirdCategory.categoryName}"  th:onclick="refreshContentProductList([[${thirdCategory.categoryId}]])">
+                                                        <li onclick="hiddenUl(event)" class="thirdLi">
+                                                            <div class="info discount thirdUl" th:text="${thirdCategory.categoryName}"  th:onclick="refreshContentProductList([[${thirdCategory.categoryId}]])">
                                                                 新品
                                                             </div>
                                                         </li>
