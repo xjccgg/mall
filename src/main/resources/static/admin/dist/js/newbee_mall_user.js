@@ -8,7 +8,7 @@ $(function () {
             {label: '联系方式', name: 'contactInformation', index: 'contactInformation', width: 120},
             {label: '注册时间', name: 'createTime', index: 'createTime', width: 120}
         ],
-        height: 560,
+        height: 400,
         rowNum: 10,
         rowList: [10, 20, 50],
         styleUI: 'Bootstrap',
