@@ -8,6 +8,7 @@ function showProduct(){
     Array.prototype.forEach.call(product, function(el) {
         el.hidden = false;
     });
+    document.getElementById("leaveMessageImg").hidden = true
 }
 
 function showContent(){
@@ -19,6 +20,7 @@ function showContent(){
     Array.prototype.forEach.call(product, function(el) {
         el.hidden = true;
     });
+    document.getElementById("leaveMessageImg").removeAttribute("hidden")
 }
 
 function showIntroduction(){
@@ -109,35 +111,6 @@ function saveMessage(){
 function hiddenUl(e){
     let parentNode = e.target.parentNode;
     let nextSibling = parentNode.nextSibling.nextSibling;
-    //
-    // var tar = e.target.nextSibling.nextSibling;
-    // if(tar != null){
-    //     // debugger
-    //     var currentTime = Date.now();
-    //     let timestamp = tar.getAttribute("timestamp");
-    //     if(timestamp == null || currentTime - timestamp > 500){
-    //         let childNodesNum = (tar.childNodes.length-1)/2;
-    //         let nextSibling1 = tar.parentNode.parentNode.parentNode.nextSibling.nextSibling;
-    //         console.log(nextSibling1);
-    //
-    //         if(tar.getAttribute("hidden") == null){
-    //             tar.hidden = true;
-    //             nextSibling.style.marginTop = "0px";
-    //             if(nextSibling1 != null){
-    //                 nextSibling1.style.marginTop = parseInt(marginTop.replace("px","")) - childNodesNum * 30 + "px";
-    //             }
-    //             console.log(tar);
-    //         }else{
-    //             tar.removeAttribute("hidden");
-    //             nextSibling.style.marginTop = childNodesNum * 30 + "px";
-    //             if(nextSibling1 != null){
-    //                 let marginTop = nextSibling1.style.marginTop;
-    //                 nextSibling1.style.marginTop = parseInt(marginTop.replace("px","")) + childNodesNum * 30 + "px";
-    //             }
-    //         }
-    //     }
-    //     tar.setAttribute("timestamp",Date.now());
-    // }
     let classname = parentNode.className;
     if(classname === "firstLi"){
         let tar = parentNode.getElementsByClassName("secondUL")[0];

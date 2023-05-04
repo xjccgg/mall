@@ -23,21 +23,21 @@
         <ul id="firstUl">
             <th:block th:unless="${#lists.isEmpty(categories)}">
                 <th:block th:each="category : ${categories}">
-                    <li class="firstLi">
+                    <li class="firstLi" onclick="hiddenUl(event)">
                         <div class="info discount" th:text="${category.categoryName}"  th:onclick="refreshProductList([[${category.categoryId}]])">
                             新品
                         </div>
-                        <ul id="secondUl">
+                        <ul id="secondUl" hidden = true class="secondUL">
                             <th:block th:unless="${#lists.isEmpty(category.secondLevelCategoryVOS)}">
                                 <th:block th:each="secondCategory : ${category.secondLevelCategoryVOS}">
-                                    <li>
+                                    <li onclick="hiddenUl(event)" class="secondLi">
                                         <div class="info discount" th:text="${secondCategory.categoryName}"  th:onclick="refreshProductList([[${secondCategory.categoryId}]])">
                                             新品
                                         </div>
-                                        <ul id="thirdUl">
+                                        <ul id="thirdUl" hidden = true class="thirdUL">
                                             <th:block th:unless="${#lists.isEmpty(secondCategory.thirdLevelCategoryVOS)}">
                                                 <th:block th:each="thirdCategory : ${secondCategory.thirdLevelCategoryVOS}">
-                                                    <li>
+                                                    <li onclick="hiddenUl(event)" class="thirdLi">
                                                         <div class="info discount" th:text="${thirdCategory.categoryName}"  th:onclick="refreshProductList([[${thirdCategory.categoryId}]])">
                                                             新品
                                                         </div>
