@@ -12,16 +12,10 @@
 <div id="header">
     <div class="center">
         <ul class="fl">
-            <li onclick="showContent()">首页</li>
-            <li onclick="showProduct()">产品
-                <ul class="all-sort-list" >
-                    <li>产品1</li>
-                    <li>产品2</li>
-                    <li>产品3</li>
-                </ul>
-            </li>
-            <li onclick="showIntroduction()"><a th:href="@{/index}">公司简介  </a></li>
-            <li onclick="showContact()"><a th:href="@{/index}">联系我们</a></li>
+            <li><a th:href="@{'/index?position=1'}" onclick="showContent()">Home</a></li>
+            <li><a th:href="@{'/index?position=2'}" onclick="showProduct()">Products&nbsp;&nbsp;</a></li>
+            <li><a th:href="@{'/index#aboutUs'}" onclick="showIntroduction()">Profile</a></li>
+            <li><a th:href="@{'/index#contactUs'}" onclick="showContact()">Contacts</a></li>
         </ul>
     </div>
 </div>

@@ -1,22 +1,3 @@
-var newbeeSwiper = new Swiper('.swiper-container', {
-    //设置自动播放
-    autoplay: {
-        delay: 2000,
-        disableOnInteraction: false
-    },
-    //设置无限循环播放
-    loop: true,
-    //设置圆点指示器
-    pagination: {
-        el: '.swiper-pagination',
-    },
-    //设置上下页按钮
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    }
-})
-
 //控制显隐
 function showProduct(){
     var content = document.getElementsByClassName('content');
@@ -42,19 +23,16 @@ function showContent(){
 
 function showIntroduction(){
     showContent();
-    // setTimeout("test()","1000")
     window.location.hash='#aboutUs';
-    // document.getElementById('#aboutUs' ).scrollIntoView(true);
 }
 
 function showContact(){
     showContent();
-    // setTimeout("test()","1000")
     window.location.hash='#contactUs';
-    // document.getElementById('#contactUs' ).scrollIntoView(true);
 }
 
 let firstLoad = 0;
+
 
 function refreshProductList(configType) {
     $('#product-list').load("http://127.0.0.1:28089/goods/productList?" + "configType=" + configType);
@@ -65,7 +43,15 @@ function refreshContentProductList(configType) {
 }
 
 document.addEventListener("DOMContentLoaded",function(){
-    showContent();
+    var query = window.location.search.substring(1);
+    var pair = query.split("=");
+    console.log(query)
+    console.log(pair)
+    if(pair[1] === "2"){
+        showProduct();
+    }else{
+        showContent();
+    }
 },false);
 
 //悬浮窗控制显隐
@@ -118,4 +104,8 @@ function saveMessage(){
 
     closeDialog();
 }
+
+// window.onload = function (){
+//
+// }
 

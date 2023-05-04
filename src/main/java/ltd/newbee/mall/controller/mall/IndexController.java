@@ -61,6 +61,7 @@ public class IndexController {
         }
         request.setAttribute("productGoods", productGoods);//推荐商品
         request.setAttribute("contentProductGoods", contentProductGoods);//推荐商品
+
         return "mall/index";
     }
 }
