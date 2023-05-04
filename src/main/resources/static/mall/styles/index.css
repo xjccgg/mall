@@ -27,7 +27,7 @@
     font-size: 14px;
     color: #b0b0b0;
     padding: 0 8px;
-    width: 100px;
+    width: 200px;
 }
 
 #header .center ul li:last-of-type{
@@ -838,4 +838,43 @@ body {
 
 #contactUs #contactText > h2{
     line-height: 80px;
+}
+
+#leaveMessageImg {
+    position: fixed;
+    float: right;
+    top: 500px;
+    right: 20px;
+    width: 80px;
+}
+
+#light {
+    display: none;
+    position: fixed;
+    float: right;
+    right: 20px;
+    width: 20%;
+    height: 15%;
+    padding: 20px;
+    border: 5px solid #1baeae;
+    border-radius: 10px;
+    background-color: white;
+    z-index:1002;
+    overflow: auto;
+}
+
+#light > table {
+    margin-top: 20px;
+}
+
+#light .LeaveMessagePrompt {
+    width: 30%;
+}
+
+#light .LeaveMessageText {
+    width: 50%;
+}
+
+#light #submitLight{
+    margin-top: 20px;
 }

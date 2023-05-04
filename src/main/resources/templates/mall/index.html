@@ -227,7 +227,25 @@
         </div>
     </div>
 
+    <img id="leaveMessageImg" src="../mall/image/OBESTOOL_1.png" onclick="openDialog()"></img>
+    <div id="light" class="white_content">
+        <a>If you have any ideas or intentions, please feel free to leave us a message.</a>
+        <table>
+            <tr>
+                <td id="LeaveMessagePrompt" class="LeaveMessagePrompt">Leave a message</td>
+                <td id="LeaveMessageText" class="LeaveMessageText"><input id="message" th:value="${message}"></td>
+            </tr>
+            <tr>
+                <td id="LeaveContactPrompt" class="LeaveMessagePrompt">Contact information</td>
+                <td id="LeaveContactText" class="LeaveMessageText"><input id="contactInformation" th:value="${contactInformation}"></td>
+            </tr>
+        </table>
+        <button id="submitLight" onclick="saveMessage()">submit</button>
+        <button id="closeLight" onclick="closeDialog()">close</button>
+    </div>
 </div>
+<div id="fade" class="black_overlay"></div>
+
 <div th:replace="mall/footer::footer-fragment"></div>
 <!-- jQuery -->
 <script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>

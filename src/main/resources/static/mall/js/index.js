@@ -67,3 +67,55 @@ function refreshContentProductList(configType) {
 document.addEventListener("DOMContentLoaded",function(){
     showContent();
 },false);
+
+//悬浮窗控制显隐
+function openDialog(){
+    document.getElementById('light').style.display='block';
+}
+function closeDialog(){
+    document.getElementById('light').style.display='none';
+}
+
+//保存留言
+function saveMessage(){
+    var message = $("#message").val();
+    var contactInformation = $("#contactInformation").val();
+    var data = {
+        "message": message,
+        "contactInformation": contactInformation,
+    };
+    var url = '/tbMessage/set';
+
+    $.ajax({
+        type: 'POST',//方法类型
+        url: url,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: function (result) {
+            if (result.resultCode == 200) {
+                Swal.fire({
+                    text: "success",
+                    icon: "success",iconColor:"#1d953f",
+                });
+                reload();
+            } else {
+                Swal.fire({
+                    text: result.message,
+                    icon: "error",iconColor:"#f05b72",
+                });
+            };
+        },
+        error: function () {
+            Swal.fire({
+                text: "error",
+                icon: "error",iconColor:"#f05b72",
+            });
+        }
+    });
+
+    $('#message').val('');
+    $('#contactInformation').val('');
+
+    closeDialog();
+}
+

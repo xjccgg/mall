@@ -1,13 +1,11 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: '/admin/users/list',
+        url: '/tbMessage/page',
         datatype: "json",
         colModel: [
-            {label: 'id', name: 'userId', index: 'userId', width: 50, key: true, hidden: true},
-            {label: '昵称', name: 'nickName', index: 'nickName', width: 180},
-            {label: '登录名', name: 'loginName', index: 'loginName', width: 120},
-            {label: '身份状态', name: 'lockedFlag', index: 'lockedFlag', width: 60, formatter: lockedFormatter},
-            {label: '是否注销', name: 'isDeleted', index: 'isDeleted', width: 60, formatter: deletedFormatter},
+            {label: 'id', name: 'id', index: 'id', width: 50, key: true, hidden: true},
+            {label: '留言', name: 'message', index: 'message', width: 180},
+            {label: '联系方式', name: 'contactInformation', index: 'contactInformation', width: 120},
             {label: '注册时间', name: 'createTime', index: 'createTime', width: 120}
         ],
         height: 560,
@@ -69,7 +67,7 @@ function reload() {
 }
 
 
-function lockUser(lockStatus) {
+function deleteMessage(lockStatus) {
     var ids = getSelectedRows();
     if (ids == null) {
         return;
@@ -82,7 +80,7 @@ function lockUser(lockStatus) {
     }
     Swal.fire({
         title: "确认弹框",
-        text: "确认要修改账号状态吗?",
+        text: "确认要删除选中留言吗?",
         icon: "warning",iconColor:"#dea32c",
         showCancelButton: true,
         confirmButtonText: '确认',
@@ -91,7 +89,7 @@ function lockUser(lockStatus) {
             if (flag.value) {
                 $.ajax({
                     type: "POST",
-                    url: "/admin/users/lock/" + lockStatus,
+                    url: "/tbMessage/del",
                     contentType: "application/json",
                     data: JSON.stringify(ids),
                     success: function (r) {
