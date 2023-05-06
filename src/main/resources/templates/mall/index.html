@@ -95,7 +95,7 @@
 
     <div id="content-product" class="content">
         <h1>Product Category</h1>
-        <div id="content-product-class-list" class="content">
+        <div id="content-product-class-list">
             <ul id="content-firstUl">
                 <th:block th:unless="${#lists.isEmpty(categories)}">
                     <th:block th:each="category : ${categories}">
@@ -131,7 +131,7 @@
             </ul>
         </div>
 
-        <div id="content-product-list" th:fragment="contentProductGoods" class="content">
+        <div id="content-product-list" th:fragment="contentProductGoods">
             <ul>
                 <!-- 已配置推荐商品则显示配置内容 -->
                 <th:block th:unless="${#lists.isEmpty(contentProductGoods)}">

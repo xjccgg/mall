@@ -47,20 +47,28 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /*background-color: #efefef;*/
+    /*background-image:linear-gradient(to right,#efffff,#efefff);*/
 }
 
 #product {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 1600px;
+    width: 1400px;
+    margin-left: 15%;
+    background-color: #e9fcfc;;
+    background-image:linear-gradient(to right,#e9fcfc,#eeecfa);
+    border: 2px solid;
+    border-radius: 5px;
 }
 
 #product #product-class-list {
     justify-content: center;
     width: 300px;
     float: left;
-    background-color: #f6f9f9;
+    /*background-color: #f6f9f9;*/
+    /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa)*/
 }
 
 #product #product-class-list div{
@@ -106,7 +114,7 @@ body {
     width: 1000px;
     flex-shrink: 0;
     height: 2000px;
-    background-color: #f6f9f9;
+    /*background-color: #f6f9f9;*/
 }
 
 #product #product-list > h1 {
@@ -192,6 +200,11 @@ body {
     width: 100%;
 }
 
+#content .content{
+    border: 2px solid;
+    border-radius: 5px;
+}
+
 #content #banner {
     width: 1226px;
     flex-shrink: 0;
@@ -209,13 +222,13 @@ body {
 }
 
 #content #content-product{
-    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 1226px;
     height: 760px;
-    margin-top: 20px;
-    background-color: #f6f9f9;
+    margin-top: 10px;
+    background-color: #e9fcfc;
+    /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa)*/
 }
 
 #content #content-product > h1 {
@@ -233,6 +246,7 @@ body {
     background-color: #f6f6f6;
     height: 400px;
     margin-top: 10px;
+    margin-left: 20px;
 }
 
 #content #content-product-class-list > h3 {
@@ -249,7 +263,7 @@ body {
 
 #content #content-product-class-list ul li {
     width: 260px;
-    background-color: #b9b9b9;
+    background-color: #d9d9d9;
     display: block;
     float: top;
     font-size: 14px;
@@ -262,22 +276,22 @@ body {
 
 #content #content-product-class-list #content-firstUl {
     width: 300px;
-    background-color: #f6f6f6;
+    /*background-color: #f6f6f6;*/
     display: block;
     font-size: 14px;
     text-align: center;
     font-weight: bold;
-    height: 1000px;
+    /*height: 1000px;*/
 }
 
 #content #content-product-class-list #content-secondUl li {
     width: 260px;
-    background-color: #c9c9c9;
+    background-color: #e6e6e6;
     margin-left: 0px;
 }
 
 #content #content-product-class-list #content-thirdUl li {
-    background-color: #e9e9e9;
+    background-color: #f2f2f2;
 }
 
 #content #content-product-list {
@@ -362,8 +376,9 @@ body {
     width: 1226px;
     flex-shrink: 0;
     height: 538px;
-    margin-top: 20px;
-    background-color: #f6f9f9;
+    margin-top: 10px;
+    background-color: #e9fcfc;
+    /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa);*/
 }
 
 #content #flash > h1 {
@@ -473,8 +488,9 @@ body {
     position: relative;
     flex-shrink: 0;
     height: 830px;
-    margin-top: 20px;
-    background-color: #f6f9f9;
+    margin-top: 10px;
+    background-color: #e9fcfc;
+    /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa);*/
 }
 
 #content #recommend > h1 {
@@ -603,8 +619,9 @@ body {
     position: relative;
     flex-shrink: 0;
     height: 830px;
-    margin-top: 20px;
-    background-color: #f6f9f9;
+    margin-top: 10px;
+    background-color: #e9fcfc;
+    /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa);*/
 }
 
 #content #mainProduct > h1 {
@@ -732,11 +749,11 @@ body {
     position: relative;
     flex-shrink: 0;
     height: 730px;
-    margin-top: 20px;
-    background-color: #f6f9f9;
-    /*background: url(../image/back1.png) no-repeat;*/
+    margin-top: 10px;
+    background-color: #e9fcfc;
     background-size: 100%;
     background-position: center;
+    /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa);*/
 }
 
 #content #aboutUs > h1 {
@@ -771,10 +788,11 @@ body {
     position: relative;
     flex-shrink: 0;
     height: 830px;
-    margin-top: 20px;
-    background-color: #f6f9f9;
+    margin-top: 10px;
     background-size: 100%;
     background-position: center;
+    background-color: #e9fcfc;
+    /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa);*/
 }
 
 #contactUs > h1 {
