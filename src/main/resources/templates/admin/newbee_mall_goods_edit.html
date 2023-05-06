@@ -78,13 +78,13 @@
                             <div class="form-group" style="display:flex;">
                                 <input type="number" class="form-control col-sm-6" id="originalPrice"
                                        name="originalPrice"
-                                       placeholder="*请输入商品价格"
+                                       placeholder="*请输入商品价格下限"
                                        th:value="${goods!=null and goods.originalPrice!=null }?${goods.originalPrice}: 1"
                                        required="true">
                                 &nbsp;&nbsp;
                                 <input type="number" class="form-control col-sm-6" id="sellingPrice"
                                        name="sellingPrice"
-                                       placeholder="*请输入商品售卖价"
+                                       placeholder="*请输入商品价格上限"
                                        th:value="${goods!=null and goods.sellingPrice!=null }?${goods.sellingPrice}: 1"
                                        required="true">
                             </div>

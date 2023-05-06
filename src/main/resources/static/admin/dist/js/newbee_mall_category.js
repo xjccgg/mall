@@ -7,7 +7,8 @@ $(function () {
         datatype: "json",
         colModel: [
             {label: 'id', name: 'categoryId', index: 'categoryId', width: 50, key: true, hidden: true},
-            {label: '分类名称', name: 'categoryName', index: 'categoryName', width: 240},
+            {label: '分类名称', name: 'categoryName', index: 'categoryName', width: 120},
+            {label: '分类图片', name: 'categoryImg', index: 'categoryImg', width: 120, formatter: coverImageFormatter},
             {label: '排序值', name: 'categoryRank', index: 'categoryRank', width: 120},
             {label: '添加时间', name: 'createTime', index: 'createTime', width: 120}
         ],
@@ -38,8 +39,40 @@ $(function () {
         }
     });
 
+    function coverImageFormatter(cellvalue) {
+        return "<img src='" + cellvalue + "' height=\"80\" width=\"80\" alt='categoryImg'/>";
+    }
+
     $(window).resize(function () {
         $("#jqGrid").setGridWidth($(".card-body").width());
+    });
+
+    new AjaxUpload('#uploadCategoryImg', {
+        action: '/admin/upload/file',
+        name: 'file',
+        autoSubmit: true,
+        responseType: "json",
+        onSubmit: function (file, extension) {
+            if (!(extension && /^(jpg|jpeg|png|gif)$/.test(extension.toLowerCase()))) {
+                Swal.fire({
+                    text: "只支持jpg、png、gif格式的文件！",
+                    icon: "error",iconColor:"#f05b72",
+                });
+                return false;
+            }
+        },
+        onComplete: function (file, r) {
+            if (r != null && r.resultCode == 200) {
+                $("#categoryImg").attr("src", r.data);
+                $("#categoryImg").attr("style", "width: 128px;height: 128px;display:block;");
+                return false;
+            } else {
+                Swal.fire({
+                    text: r.message,
+                    icon: "error",iconColor:"#f05b72",
+                });
+            }
+        }
     });
 });
 
@@ -101,6 +134,7 @@ function categoryBack() {
 $('#saveButton').click(function () {
     var categoryName = $("#categoryName").val();
     var categoryLevel = $("#categoryLevel").val();
+    var categoryImg = $("#categoryImg")[0].src;
     var parentId = $("#parentId").val();
     var categoryRank = $("#categoryRank").val();
     if (!validCN_ENString2_100(categoryName)) {
@@ -110,6 +144,7 @@ $('#saveButton').click(function () {
         var data = {
             "categoryName": categoryName,
             "categoryLevel": categoryLevel,
+            "categoryImg": categoryImg,
             "parentId": parentId,
             "categoryRank": categoryRank
         };
@@ -121,6 +156,7 @@ $('#saveButton').click(function () {
                 "categoryId": id,
                 "categoryName": categoryName,
                 "categoryLevel": categoryLevel,
+                "categoryImg": categoryImg,
                 "parentId": parentId,
                 "categoryRank": categoryRank
             };
@@ -168,6 +204,7 @@ function categoryEdit() {
     $('#categoryModal').modal('show');
     $("#categoryId").val(id);
     $("#categoryName").val(rowData.categoryName);
+    $("#categoryImg").val(rowData.categoryImg);
     $("#categoryRank").val(rowData.categoryRank);
 }
 
