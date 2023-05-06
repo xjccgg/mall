@@ -8,12 +8,15 @@
  */
 package ltd.newbee.mall.controller.vo;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * 首页分类数据VO
  */
+@Data
 public class NewBeeMallIndexCategoryVO implements Serializable {
 
     private Long categoryId;
@@ -22,37 +25,7 @@ public class NewBeeMallIndexCategoryVO implements Serializable {
 
     private String categoryName;
 
+    private String categoryImg;
+
     private List<SecondLevelCategoryVO> secondLevelCategoryVOS;
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public Byte getCategoryLevel() {
-        return categoryLevel;
-    }
-
-    public void setCategoryLevel(Byte categoryLevel) {
-        this.categoryLevel = categoryLevel;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public List<SecondLevelCategoryVO> getSecondLevelCategoryVOS() {
-        return secondLevelCategoryVOS;
-    }
-
-    public void setSecondLevelCategoryVOS(List<SecondLevelCategoryVO> secondLevelCategoryVOS) {
-        this.secondLevelCategoryVOS = secondLevelCategoryVOS;
-    }
 }
