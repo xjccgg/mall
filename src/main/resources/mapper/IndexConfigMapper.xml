@@ -74,6 +74,12 @@
             #{id}
         </foreach>
     </update>
+    <delete id="forceDeleteBatch">
+        delete from tb_newbee_mall_index_config where goods_id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
     <insert id="insert" parameterType="ltd.newbee.mall.entity.IndexConfig">
     insert into tb_newbee_mall_index_config (config_id, config_name, config_type, 
       goods_id, redirect_url, config_rank, 

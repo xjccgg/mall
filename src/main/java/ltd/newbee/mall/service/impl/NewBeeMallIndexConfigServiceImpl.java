@@ -156,4 +156,13 @@ public class NewBeeMallIndexConfigServiceImpl extends ServiceImpl<NewBeeMallGood
         //删除数据
         return indexConfigMapper.deleteBatch(ids) > 0;
     }
+
+    @Override
+    public Boolean deleteBatchByGoodsId(Long[] ids) {
+        if (ids.length < 1) {
+            return false;
+        }
+        //删除数据
+        return indexConfigMapper.forceDeleteBatch(ids) > 0;
+    }
 }

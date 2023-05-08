@@ -26,6 +26,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -109,6 +110,17 @@ public class NewBeeMallGoodsServiceImpl implements NewBeeMallGoodsService {
     @Override
     public Boolean batchUpdateSellStatus(Long[] ids, int sellStatus) {
         return goodsMapper.batchUpdateSellStatus(ids, sellStatus) > 0;
+    }
+
+
+    @Override
+    public Boolean batchDelete(Long[] ids) {
+        int num = 0;
+        for (Long id : ids) {
+            num += goodsMapper.deleteByPrimaryKey(id);
+        }
+
+        return num > 0;
     }
 
     @Override

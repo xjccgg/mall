@@ -48,4 +48,6 @@ public interface NewBeeMallIndexConfigService extends IService<NewBeeMallGoods> 
     List<NewBeeMallGoods> getGoodsForProduct(int configType, int order);
 
     Boolean deleteBatch(Long[] ids);
+
+    Boolean deleteBatchByGoodsId(Long[] ids);
 }

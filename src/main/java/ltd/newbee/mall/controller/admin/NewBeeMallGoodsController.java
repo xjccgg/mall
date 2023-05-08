@@ -16,6 +16,7 @@ import ltd.newbee.mall.entity.GoodsCategory;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
 import ltd.newbee.mall.service.NewBeeMallCategoryService;
 import ltd.newbee.mall.service.NewBeeMallGoodsService;
+import ltd.newbee.mall.service.NewBeeMallIndexConfigService;
 import ltd.newbee.mall.util.PageQueryUtil;
 import ltd.newbee.mall.util.Result;
 import ltd.newbee.mall.util.ResultGenerator;
@@ -46,6 +47,8 @@ public class NewBeeMallGoodsController {
     private NewBeeMallGoodsService newBeeMallGoodsService;
     @Resource
     private NewBeeMallCategoryService newBeeMallCategoryService;
+    @Resource
+    private NewBeeMallIndexConfigService newBeeMallIndexConfigService;
 
     @GetMapping("/goods")
     public String goodsPage(HttpServletRequest request) {
@@ -219,10 +222,35 @@ public class NewBeeMallGoodsController {
             return ResultGenerator.genFailResult("状态异常！");
         }
         if (newBeeMallGoodsService.batchUpdateSellStatus(ids, sellStatus)) {
+            try {
+                newBeeMallIndexConfigService.deleteBatchByGoodsId(ids);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             return ResultGenerator.genSuccessResult();
         } else {
             return ResultGenerator.genFailResult("修改失败");
         }
     }
 
+    /**
+     * 批量删除商品
+     */
+    @RequestMapping(value = "/goods/delete", method = RequestMethod.PUT)
+    @ResponseBody
+    public Result forceDelete(@RequestBody Long[] ids) {
+        if (ids.length < 1) {
+            return ResultGenerator.genFailResult("选中产品不能为空！");
+        }
+        if (newBeeMallGoodsService.batchDelete(ids)) {
+            try {
+                newBeeMallIndexConfigService.deleteBatchByGoodsId(ids);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return ResultGenerator.genSuccessResult();
+        } else {
+            return ResultGenerator.genFailResult("删除失败");
+        }
+    }
 }

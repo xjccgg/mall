@@ -176,6 +176,47 @@ function putDownGoods() {
                 });
             }
         }
-    )
-    ;
+    );
+}
+
+/**
+ * 删除
+ */
+function deleteGoods() {
+    var ids = getSelectedRows();
+    if (ids == null) {
+        return;
+    }
+    Swal.fire({
+        title: "确认弹框",
+        text: "确认要执行删除操作吗?",
+        icon: "warning",iconColor:"#dea32c",
+        showCancelButton: true,
+        confirmButtonText: '确认',
+        cancelButtonText: '取消'
+    }).then((flag) => {
+            if (flag.value) {
+                $.ajax({
+                    type: "PUT",
+                    url: "/admin/goods/delete",
+                    contentType: "application/json",
+                    data: JSON.stringify(ids),
+                    success: function (r) {
+                        if (r.resultCode == 200) {
+                            Swal.fire({
+                                text: "删除成功",
+                                icon: "success",iconColor:"#1d953f",
+                            });
+                            $("#jqGrid").trigger("reloadGrid");
+                        } else {
+                            Swal.fire({
+                                text: r.message,
+                                icon: "error",iconColor:"#f05b72",
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    );
 }

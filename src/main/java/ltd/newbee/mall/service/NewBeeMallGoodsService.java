@@ -64,6 +64,14 @@ public interface NewBeeMallGoodsService {
     Boolean batchUpdateSellStatus(Long[] ids,int sellStatus);
 
     /**
+     * 批量删除商品
+     *
+     * @param ids
+     * @return
+     */
+    Boolean batchDelete(Long[] ids);
+
+    /**
      * 商品搜索
      *
      * @param pageUtil
