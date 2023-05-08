@@ -44,15 +44,37 @@ function refreshContentProductList(configType) {
     $('#content-product-list').load("http://127.0.0.1:28089/goods/contentProductList?" + "configType=" + configType);
 }
 
+const getConfigValue = (id) => {
+    let url = 'http://127.0.0.1:28089/admin/tbConfig/getValue/' + id;
+    var r = '';
+    $.ajax({
+        type: 'GET',//方法类型
+        url: url,
+        async: false,
+        contentType: 'application/json',
+        success: function (result) {
+            r = result;
+            console.log(r);
+        },
+    });
+    return r;
+}
+
 document.addEventListener("DOMContentLoaded",function(){
     var query = window.location.search.substring(1);
     var pair = query.split("=");
-    console.log(query)
-    console.log(pair)
     if(pair[1] === "2"){
         showProduct();
     }else{
         showContent();
+        for (const elementsByClassNameElement of document.getElementsByClassName("configImg")) {
+            console.log(getConfigValue(elementsByClassNameElement.getAttribute("configName")));
+            elementsByClassNameElement.src = getConfigValue(elementsByClassNameElement.getAttribute("configName"));
+        }
+
+        for (const elementsByClassNameElement of document.getElementsByClassName("configValue")) {
+            elementsByClassNameElement.innerHTML = getConfigValue(elementsByClassNameElement.getAttribute("configName"));
+        }
     }
 },false);
 
@@ -168,6 +190,8 @@ function hiddenUl(e){
         }
         tar.setAttribute("timestamp",Date.now());
     }
+    
+
 
 }
 

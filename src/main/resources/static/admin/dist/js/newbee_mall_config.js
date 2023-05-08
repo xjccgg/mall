@@ -12,8 +12,8 @@ $(function () {
             {label: '图片展示', name: 'configValue', index: 'configValue', width: 120, formatter: coverImageFormatter},
         ],
         height: 560,
-        rowNum: 10,
-        rowList: [10, 20, 50],
+        rowNum: 50,
+        rowList: [50],
         styleUI: 'Bootstrap',
         loadtext: '信息读取中...',
         rownumbers: false,
@@ -39,7 +39,7 @@ $(function () {
     });
 
     function coverImageFormatter(cellvalue) {
-        if(cellvalue != null && cellvalue.indexOf('http://127.0.0.1:28089/upload') !== -1){
+        if(cellvalue != null && cellvalue.indexOf('28089/upload') !== -1){
             return "<img src='" + cellvalue + "' height=\"80\" width=\"80\" alt='configValue'/>";
         }else{
             return cellvalue;
@@ -103,7 +103,7 @@ $('#saveButton').click(function () {
 
     var configImg = $("#configImg")[0].src;
 
-    if(configImg.indexOf('http://127.0.0.1:28089/upload') !== -1){
+    if(configImg.indexOf('28089/upload') !== -1){
         configValue = configImg;
     }else{
         configValue = $("#configValue").val();
@@ -135,7 +135,6 @@ $('#saveButton').click(function () {
                     icon: "error",iconColor:"#f05b72",
                 });
             }
-            ;
         },
         error: function () {
             Swal.fire({
@@ -157,7 +156,7 @@ function configEdit() {
     $('#configModal').modal('show');
     $("#configId").val(id);
     $("#configName").val(rowData.configName);
-    if(rowData.configValue.indexOf('http://127.0.0.1:28089/upload') !== -1){
+    if(rowData.configValue.indexOf('28089/upload') !== -1){
         $("#configImg").val(rowData.configValue.substring(10,61));
     }else{
         $("#configValue").val(rowData.configValue);
