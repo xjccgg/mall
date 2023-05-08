@@ -51,6 +51,12 @@ public class AdminController {
         return "admin/index";
     }
 
+    @GetMapping("/configs")
+    public String configsPage(HttpServletRequest request) {
+        request.setAttribute("path", "newbee_config");
+        return "admin/newbee_mall_config";
+    }
+
     @PostMapping(value = "/login")
     public String login(@RequestParam("userName") String userName,
                         @RequestParam("password") String password,

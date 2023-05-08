@@ -34,6 +34,7 @@ public class NeeBeeMallWebMvcConfigurer implements WebMvcConfigurer {
                 .addPathPatterns("/admin/**")
                 .excludePathPatterns("/admin/login")
                 .excludePathPatterns("/admin/dist/**")
+                .excludePathPatterns("/admin/tbConfig/getValue/**")
                 .excludePathPatterns("/admin/plugins/**");
         // 购物车中的数量统一处理
 //        registry.addInterceptor(newBeeMallCartNumberInterceptor)

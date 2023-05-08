@@ -37,8 +37,6 @@ public class AdminLoginInterceptor implements HandlerInterceptor {
             request.getSession().removeAttribute("errorMsg");
             return true;
         }
-//        request.getSession().removeAttribute("errorMsg");
-//        return true;
     }
 
     @Override
