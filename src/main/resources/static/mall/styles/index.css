@@ -59,14 +59,15 @@ body {
     margin-left: 15%;
     background-color: #e9fcfc;;
     /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa);*/
-    /*border: 2px solid;*/
+    border: solid;
+    border-width: 0px 2px ;
     /*border-radius: 5px;*/
 }
 
 #product #product-class-list {
     justify-content: center;
     width: 300px;
-    float: left;
+    /*float: left;*/
     /*background-color: #f6f9f9;*/
     /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa)*/
 }
@@ -93,12 +94,12 @@ body {
     font-size: 14px;
     text-align: center;
     font-weight: bold;
-    height: 1000px;
+    height: 5000px;
 }
 
 #product #product-class-list #secondUl li {
     width: 260px;
-    margin-left: 0px;
+    margin-left: 0;
     height: 30px;
 }
 
@@ -113,7 +114,7 @@ body {
 #product #product-list {
     width: 1000px;
     flex-shrink: 0;
-    height: 2000px;
+    height: 5000px;
     /*background-color: #f6f9f9;*/
 }
 
@@ -225,7 +226,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     width: 1226px;
-    height: 760px;
+    height: 1720px;
     margin-top: 10px;
     background-color: #e9fcfc;
     /*background-image:linear-gradient(to right,#e9fcfc,#eeecfa)*/
@@ -234,72 +235,17 @@ body {
 #content #content-product > h1 {
     text-align: center;
     width: 100%;
-    height: 158px;
-    line-height: 158px;
+    height: 120px;
+    line-height: 120px;
     float: top;
-}
-
-#content #content-product-class-list{
-    justify-content: center;
-    width: 300px;
-    float: left;
-    background-color: #f6f6f6;
-    height: 400px;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
-#content #content-product-class-list > h3 {
-    text-align: center;
-    height: 58px;
-    line-height: 58px;
-}
-
-
-#content #content-product-class-list ul{
-    float: top;
-    margin-top: 10px;
-}
-
-#content #content-product-class-list ul li {
-    width: 260px;
-    background-color: #d9d9d9;
-    display: block;
-    float: top;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    height: 30px;
-    margin-left: 20px;
-    border-radius: 3px;
-}
-
-#content #content-product-class-list #content-firstUl {
-    width: 300px;
-    /*background-color: #f6f6f6;*/
-    display: block;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    /*height: 1000px;*/
-}
-
-#content #content-product-class-list #content-secondUl li {
-    width: 260px;
-    background-color: #e6e6e6;
-    margin-left: 0px;
-}
-
-#content #content-product-class-list #content-thirdUl li {
-    background-color: #f2f2f2;
 }
 
 #content #content-product-list {
-    margin-left: 10px;
-    width: 896px;
+    margin-left: 20px;
+    width: 1180px;
     flex-shrink: 0;
     height: 600px;
-    float: right;
+    /*float: top;*/
 }
 
 #content #content-product-list ul {
@@ -310,65 +256,38 @@ body {
 }
 
 #content #content-product-list ul li {
-    width: 234px;
-    height: 250px;
-    background-color: #fafafa;
-    border-top: 1px solid #ffa500;
-    margin: 10px 10px 10px 10px;
-}
+    margin-top: 10px;
+    width: 580px;
+    height: 300px;
+    border: 1px solid;
+    border-radius: 2px;
 
-#content #content-product-list ul li a .name {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-#content #content-product-list ul li a .comment p{
-    font-size: 14px;
-    color: #939da3;
-}
-
-#content #content-product-list ul li:nth-child(2) {
-    border-color: #008000;
-}
-
-#content #content-product-list ul li:nth-child(3) {
-    border-color: #00f;
-}
-
-#content #content-product-list ul li:nth-child(4) {
-    border-color: #f00;
-}
-
-#content #content-product-list ul li:nth-child(5) {
-    border-color: #008080;
 }
 
 #content #content-product-list ul li a {
     display: block;
     text-align: center;
+    position: relative;
 }
 
 #content #content-product-list ul li a img {
-    width: 160px;
-    height: 160px;
-    opacity: 0.8;
-    margin: 10px;
+    width: 580px;
+    height: 300px;
+    filter: blur(3px) brightness(70%);
+    /*filter: grayscale(50%);*/
 }
 
-#content #content-product-list ul li a .discount {
-    font-size: 12px;
-    color: #b0b0b0;
-    margin: 5px 0;
-}
+#content #content-product-list ul li a p {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    width: 20px;
+    height: 435px;
 
-#content #content-product-list ul li a .item_price {
-    font-size: 20px;
-    color: #1baeae;
-    margin-top: 15px;
-}
-
-#content #content-product-list ul li a:hover img {
-    opacity: 1;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    /*text-align: center;*/
 }
 
 

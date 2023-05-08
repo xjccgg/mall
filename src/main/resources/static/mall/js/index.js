@@ -54,7 +54,6 @@ const getConfigValue = (id) => {
         contentType: 'application/json',
         success: function (result) {
             r = result;
-            console.log(r);
         },
     });
     return r;
@@ -62,13 +61,14 @@ const getConfigValue = (id) => {
 
 document.addEventListener("DOMContentLoaded",function(){
     var query = window.location.search.substring(1);
-    var pair = query.split("=");
+    var pair = query.split("&")[0];
+    pair = pair.split("=");
     if(pair[1] === "2"){
         showProduct();
     }else{
         showContent();
+        //图片及文字改为配置形式展示
         for (const elementsByClassNameElement of document.getElementsByClassName("configImg")) {
-            console.log(getConfigValue(elementsByClassNameElement.getAttribute("configName")));
             elementsByClassNameElement.src = getConfigValue(elementsByClassNameElement.getAttribute("configName"));
         }
 

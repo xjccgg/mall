@@ -13,7 +13,7 @@ $(function () {
             {label: '添加时间', name: 'createTime', index: 'createTime', width: 120}
         ],
         height: 560,
-        rowNum: 10,
+        rowNum: 20,
         rowList: [10, 20, 50],
         styleUI: 'Bootstrap',
         loadtext: '信息读取中...',

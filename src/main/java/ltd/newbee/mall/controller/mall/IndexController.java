@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class IndexController {
@@ -54,13 +55,16 @@ public class IndexController {
         request.setAttribute("newGoodses", newGoodses);//新品
         request.setAttribute("recommendGoodses", recommendGoodses);//推荐商品
 
-        List<NewBeeMallGoods> productGoods = newBeeMallIndexConfigService.getGoodsForProduct(109,1);
-        List<NewBeeMallGoods> contentProductGoods = newBeeMallIndexConfigService.getGoodsForProduct(109,1);
-        if(contentProductGoods.size() > 6){
-            contentProductGoods = contentProductGoods.subList(0,6);
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        String[] categoryIds = parameterMap.get("categoryId");
+        if(categoryIds != null && categoryIds.length > 0){
+            List<NewBeeMallGoods> productGoods = newBeeMallIndexConfigService.getGoodsForProduct(Integer.parseInt(categoryIds[0]),1);
+            request.setAttribute("productGoods", productGoods);//推荐商品
+        }else{
+            List<NewBeeMallGoods> productGoods = newBeeMallIndexConfigService.getGoodsForProduct(-1,1);
+            request.setAttribute("productGoods", productGoods);//推荐商品
+
         }
-        request.setAttribute("productGoods", productGoods);//推荐商品
-        request.setAttribute("contentProductGoods", contentProductGoods);//推荐商品
 
         return "mall/index";
     }

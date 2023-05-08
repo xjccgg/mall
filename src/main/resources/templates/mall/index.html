@@ -95,51 +95,16 @@
 
     <div id="content-product" class="content">
         <h1>Product Category</h1>
-        <div id="content-product-class-list">
-            <ul id="content-firstUl">
-                <th:block th:unless="${#lists.isEmpty(categories)}">
-                    <th:block th:each="category : ${categories}">
-                        <li onclick="hiddenUl(event)" class="firstLi">
-                            <div class="info discount firstUl" th:text="${category.categoryName}"  th:onclick="refreshContentProductList([[${category.categoryId}]])">
-                                新品
-                            </div>
-                            <ul id="content-secondUl" hidden = true class="secondUL">
-                                <th:block th:unless="${#lists.isEmpty(category.secondLevelCategoryVOS)}">
-                                    <th:block th:each="secondCategory : ${category.secondLevelCategoryVOS}">
-                                        <li onclick="hiddenUl(event)" class="secondLi">
-                                            <div class="info discount secondUl" th:text="${secondCategory.categoryName}"  th:onclick="refreshContentProductList([[${secondCategory.categoryId}]])">
-                                                新品
-                                            </div>
-                                            <ul id="content-thirdUl" hidden = true class="thirdUL">
-                                                <th:block th:unless="${#lists.isEmpty(secondCategory.thirdLevelCategoryVOS)}">
-                                                    <th:block th:each="thirdCategory : ${secondCategory.thirdLevelCategoryVOS}">
-                                                        <li onclick="hiddenUl(event)" class="thirdLi">
-                                                            <div class="info discount thirdUl" th:text="${thirdCategory.categoryName}"  th:onclick="refreshContentProductList([[${thirdCategory.categoryId}]])">
-                                                                新品
-                                                            </div>
-                                                        </li>
-                                                    </th:block>
-                                                </th:block>
-                                            </ul>
-                                        </li>
-                                    </th:block>
-                                </th:block>
-                            </ul>
-                        </li>
-                    </th:block>
-                </th:block>
-            </ul>
-        </div>
 
-        <div id="content-product-list" th:fragment="contentProductGoods">
+        <!-- 分类图片-->
+        <div id="content-product-list" th:fragment="categories">
             <ul>
-                <!-- 已配置推荐商品则显示配置内容 -->
-                <th:block th:unless="${#lists.isEmpty(contentProductGoods)}">
-                    <th:block th:each="contentProductGood : ${contentProductGoods}">
-                        <li>
-                            <a th:href="@{'/goods/detail/'+${contentProductGood.goodsId}}">
-                                <img th:src="@{${contentProductGood.goodsCoverImg}}" th:alt="${contentProductGood.goodsName}">
-                                <p class="name" th:text="${contentProductGood.goodsName}">NewBeeMall</p>
+                <th:block th:unless="${#lists.isEmpty(categories)}">
+                    <th:block th:each="category : ${categories}" end="9">
+                        <li th:if="${category.categoryImg != null}" >
+                            <a th:href="@{'/index?position=2&categoryId=' + ${category.categoryId}}" >
+                                <img th:src="@{${category.categoryImg}}" th:alt="${category.categoryName}">
+                                <p class="name" th:text="${category.categoryName}">商城</p>
                             </a>
                         </li>
                     </th:block>

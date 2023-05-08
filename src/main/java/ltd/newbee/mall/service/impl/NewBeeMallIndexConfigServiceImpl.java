@@ -126,8 +126,13 @@ public class NewBeeMallIndexConfigServiceImpl extends ServiceImpl<NewBeeMallGood
      */
     @Override
     public List<NewBeeMallGoods> getGoodsForProduct(int configType, int order){
-        List<GoodsCategory> goodsTwoCategories = goodsCategoryMapper.selectList(Wrappers.lambdaQuery(new GoodsCategory())
-                .eq(GoodsCategory::getParentId, configType));
+        List<GoodsCategory> goodsTwoCategories;
+        if(configType != -1){
+            goodsTwoCategories = goodsCategoryMapper.selectList(Wrappers.lambdaQuery(new GoodsCategory())
+                    .eq(GoodsCategory::getParentId, configType));
+        }else{
+            goodsTwoCategories = goodsCategoryMapper.selectList(Wrappers.lambdaQuery(new GoodsCategory()));
+        }
         List<Long> cateGoryIds = goodsTwoCategories.stream().map(GoodsCategory::getCategoryId).collect(Collectors.toList());
         if (cateGoryIds.size() > 0){
             List<GoodsCategory> goodsThreeCategories = goodsCategoryMapper.selectList(Wrappers.lambdaQuery(new GoodsCategory())
